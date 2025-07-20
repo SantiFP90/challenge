@@ -1,0 +1,31 @@
+.btns {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.btns-cancel {
+  background-color: #f87171;
+  color: white;
+  border: 1px solid #f87171;
+}
+
+.btns:not(:disabled):hover {
+  background: transparent;
+  border: 1px solid #f87171;
+  box-shadow: none;
+  color: #f87171;
+}
+
+.btns-success {
+  background-color: #34d399;
+  color: white;
+  border: 1px solid #34d399;
+}
+
+.btns-success:not(:disabled):hover {
+  background: transparent;
+  border: 1px solid #34d399;
+  box-shadow: none;
+  color: #34d399;
+}

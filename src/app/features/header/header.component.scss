@@ -3,13 +3,19 @@
   color: white;
 }
 
-:host ::ng-deep {
-  .btn-new {
-    background-color: white;
-    color: red;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+.btn-new {
+  background-color: white;
+  color: red;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-new:not(:disabled):hover {
+  background: white;
+  border: none;
+  font-weight: bold;
+  box-shadow: none;
+  color: red;
 }

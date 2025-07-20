@@ -1,0 +1,116 @@
+<p-dialog
+  header="📰 Nueva Noticia"
+  [modal]="true"
+  [(visible)]="visible"
+  (onHide)="onHide()"
+  [style]="{ width: '50rem' }"
+  [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="flex flex-column gap-4">
+      <div class="flex flex-column gap-2">
+        <label for="title" class="font-semibold text-900">
+          <i class="pi pi-bookmark mr-2"></i>Título *
+        </label>
+        <input
+          id="title"
+          pInputText
+          formControlName="title"
+          placeholder="Ingresa el título de la noticia..."
+          class="w-full"
+        />
+        <small class="text-500">Máximo 100 caracteres</small>
+        @if (form.controls['title'].touched &&
+        form.controls['title'].errors?.['required']) {
+        <small class="text-red"> El título es obligatorio. </small>
+        } @if (form.controls['title'].touched &&
+        form.controls['title'].errors?.['maxlength']) {
+        <small class="text-red"> Máximo 100 caracteres. </small>
+        }
+      </div>
+
+      <div class="flex flex-column gap-2">
+        <label for="content" class="font-semibold text-900">
+          <i class="pi pi-file-edit mr-2"></i>Contenido *
+        </label>
+        <textarea
+          id="content"
+          pInputTextarea
+          rows="5"
+          formControlName="content"
+          placeholder="Escribe el contenido de la noticia aquí..."
+          class="w-full"
+        ></textarea>
+        <small class="text-500">Mínimo 50 caracteres</small>
+        @if (form.controls['content'].touched &&
+        form.controls['content'].errors?.['required']) {
+        <small class="text-red"> El contenido es obligatorio. </small>
+        } @if (form.controls['content'].touched &&
+        form.controls['content'].errors?.['minlength']) {
+        <small class="text-red"> Mínimo 50 caracteres. </small>
+        }
+      </div>
+
+      <div class="flex flex-column gap-2">
+        <label for="imageUrl" class="font-semibold text-900">
+          <i class="pi pi-image mr-2"></i>URL de Imagen
+        </label>
+        <input
+          id="imageUrl"
+          pInputText
+          formControlName="imageUrl"
+          placeholder="https://ejemplo.com/imagen.jpg"
+          class="w-full"
+        />
+        <small class="text-500">URL de la imagen principal (opcional)</small>
+        @if (form.controls['imageUrl'].touched &&
+        form.controls['imageUrl'].errors?.['pattern']) {
+        <small class="text-red">
+          Debe ser una URL válida de imagen (jpg, png, etc).
+        </small>
+        }
+      </div>
+
+      <div class="flex flex-column gap-2">
+        <label for="author" class="font-semibold text-900">
+          <i class="pi pi-user mr-2"></i>Autor *
+        </label>
+        <input
+          id="author"
+          pInputText
+          formControlName="author"
+          placeholder="Nombre del autor..."
+          class="w-full"
+        />
+        @if (form.controls['author'].touched &&
+        form.controls['author'].errors?.['required']) {
+        <small class="text-red"> El autor es obligatorio. </small>
+        } @if (form.controls['author'].touched &&
+        form.controls['author'].errors?.['maxlength']) {
+        <small class="text-red"> Máximo 50 caracteres. </small>
+        }
+      </div>
+
+      <div class="flex justify-content-end gap-2 pt-3">
+        <button
+          pButton
+          label="Cancelar"
+          icon="pi pi-times"
+          class="btns btns-cancel"
+          (click)="onHide()"
+          type="button"
+        ></button>
+        <button
+          pButton
+          label="Publicar Noticia"
+          class="btns btns-success"
+          icon="pi pi-check"
+          type="submit"
+          [disabled]="form.invalid"
+        ></button>
+      </div>
+    </div>
+  </form>
+</p-dialog>
