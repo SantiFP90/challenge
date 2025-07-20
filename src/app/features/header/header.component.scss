@@ -1,0 +1,15 @@
+.header {
+  background-color: red;
+  color: white;
+}
+
+:host ::ng-deep {
+  .btn-new {
+    background-color: white;
+    color: red;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
