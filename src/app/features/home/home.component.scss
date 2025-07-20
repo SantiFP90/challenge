@@ -1,0 +1,52 @@
+:host ::ng-deep {
+  .p-carousel-indicator-active .p-carousel-indicator-button {
+    background-color: red !important;
+  }
+  .p-icon {
+    color: red !important;
+    font-weight: bold;
+  }
+}
+
+@media (max-width: 768px) {
+  ::ng-deep .custom-carousel {
+    .p-carousel-prev,
+    .p-carousel-next {
+      width: 2rem;
+      height: 2rem;
+      font-size: 0.875rem;
+    }
+  }
+}
+
+.surface-card {
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+img {
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+@media (max-width: 576px) {
+  .grid {
+    padding: 1rem;
+  }
+
+  .surface-card {
+    padding: 1rem;
+  }
+}
+
+.location {
+  color: red;
+}
