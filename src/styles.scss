@@ -5,3 +5,33 @@ body {
   background-color: #f5f5f5;
   line-height: 1.6;
 }
+
+.p-inputtext {
+  border-radius: 15px !important;
+  border: 1px solid #64748b82 !important;
+  padding: 10px;
+  width: 100%;
+}
+
+.p-textarea {
+  border-radius: 15px !important;
+  border: 1px solid #64748b82 !important;
+  padding: 10px;
+  width: 100%;
+}
+
+.p-textarea:enabled:focus {
+  outline: rgba(128, 128, 128, 0.562) !important;
+  outline-offset: 2px;
+  outline-offset: rgba(128, 128, 128, 0.562) !important;
+}
+
+.p-inputtext:enabled:focus {
+  outline: rgba(128, 128, 128, 0.562) !important;
+  outline-offset: 2px;
+  outline-offset: rgba(128, 128, 128, 0.562) !important;
+}
+
+.text-red {
+  color: #f87171;
+}

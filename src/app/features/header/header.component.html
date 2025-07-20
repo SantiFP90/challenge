@@ -5,6 +5,17 @@
     <H1 class="m-0 p-0">MFS News</H1>
   </div>
   <div>
-    <button class="btn-new" pButton label="Nueva noticia"></button>
+    <button
+      class="btn-new only-component"
+      pButton
+      label="Nueva noticia"
+      (click)="openModal()"
+    ></button>
   </div>
 </div>
+
+<app-news-form-modal
+  [visible]="visible"
+  (modalClosed)="onModalClosed()"
+  (newsCreated)="onNewsCreated()"
+/>
