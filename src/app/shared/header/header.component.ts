@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
-import { NewsFormModalComponent } from '../../shared/news-form-modal/news-form-modal.component';
+import { NewsFormModalComponent } from '../news-form-modal/news-form-modal.component';
 import { Router, RouterModule } from '@angular/router';
-import { NewsService } from '../services/new.service';
-import { News } from '../models/news.model';
+import { NewsService } from '../../features/services/new.service';
+import { News } from '../../features/models/news.model';
 
 @Component({
   selector: 'app-header',
@@ -46,7 +46,7 @@ export class HeaderComponent {
   onNewsCreated() {
     this.messageService.add({
       severity: 'success',
-      summary: 'Noticia creada',
+      summary: 'Noticia',
       detail: 'La noticia fue publicada correctamente',
     });
   }
