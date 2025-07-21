@@ -145,7 +145,7 @@
         ></button>
         <button
           pButton
-          label="Publicar Noticia"
+          [label]="newsToEdit ? 'Actualizar Noticia' : 'Publicar Noticia'"
           class="btns btns-success"
           icon="pi pi-check"
           type="submit"

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import { delay, map } from 'rxjs/operators';
 import { v4 as uuid } from 'uuid';
 
 import { News } from '../models/news.model';
@@ -117,7 +117,9 @@ export class NewsService {
   }
 
   getById(id: string): Observable<News | undefined> {
-    return of(this.newsList.find((n) => n.id === id)).pipe(delay(300));
+    return this.newsSubject.pipe(
+      map((newsList) => newsList.find((n) => n.id === id))
+    );
   }
 
   create(news: Omit<News, 'id' | 'createdAt'>): void {
@@ -135,10 +137,13 @@ export class NewsService {
     this.newsSubject.next(this.newsList);
   }
 
-  update(updatedNews: News): void {
-    const index = this.newsList.findIndex((n) => n.id === updatedNews.id);
+  update(idNew: string, updatedNews: News): void {
+    const index = this.newsList.findIndex((n) => n.id === idNew);
     if (index > -1) {
-      this.newsList[index] = { ...updatedNews };
+      this.newsList[index] = {
+        ...updatedNews,
+        id: this.newsList[index].id,
+      };
       this.newsSubject.next(this.newsList);
     }
   }

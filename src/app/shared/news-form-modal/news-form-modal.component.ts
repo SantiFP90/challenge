@@ -1,4 +1,10 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  SimpleChanges,
+} from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -12,6 +18,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { TextareaModule } from 'primeng/textarea';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
+import { News } from '../../features/models/news.model';
 
 @Component({
   selector: 'app-news-form-modal',
@@ -28,6 +35,8 @@ import { CommonModule } from '@angular/common';
 })
 export class NewsFormModalComponent {
   @Input() visible = false;
+  @Input() newsToEdit?: News | null = null;
+
   @Output() newsCreated = new EventEmitter<void>();
   @Output() modalClosed = new EventEmitter<void>();
 
@@ -44,9 +53,20 @@ export class NewsFormModalComponent {
     });
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['newsToEdit'] && this.newsToEdit) {
+      this.form.patchValue(this.newsToEdit);
+    }
+  }
+
   onSubmit() {
     if (this.form.valid) {
-      this.newsService.create(this.form.value);
+      if (this.newsToEdit) {
+        this.newsService.update(this.newsToEdit.id, this.form.value);
+      } else {
+        this.newsService.create(this.form.value);
+      }
+
       this.newsCreated.emit();
       this.form.reset();
       this.visible = false;
