@@ -1,0 +1,20 @@
+:host ::ng-deep {
+  .p-carousel-indicator-active .p-carousel-indicator-button {
+    background-color: #f87171 !important;
+  }
+  .p-icon {
+    color: #f87171 !important;
+    font-weight: bold;
+  }
+}
+
+@media (max-width: 768px) {
+  ::ng-deep .custom-carousel {
+    .p-carousel-prev,
+    .p-carousel-next {
+      width: 2rem;
+      height: 2rem;
+      font-size: 0.875rem;
+    }
+  }
+}
