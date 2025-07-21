@@ -12,6 +12,7 @@ import { DividerModule } from 'primeng/divider';
 import { ImageModule } from 'primeng/image';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { MessageService } from 'primeng/api';
+import { NewsSecondaryCardComponent } from '../../../shared/news-secondary-card/news-secondary-card.component';
 
 @Component({
   selector: 'app-news-details',
@@ -23,6 +24,7 @@ import { MessageService } from 'primeng/api';
     DividerModule,
     ImageModule,
     ProgressSpinnerModule,
+    NewsSecondaryCardComponent,
   ],
   templateUrl: './news-details.component.html',
   styleUrl: './news-details.component.scss',
