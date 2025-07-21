@@ -143,8 +143,15 @@ export class NewsService {
     }
   }
 
-  delete(id: string): void {
+  delete(id: string): Observable<boolean> {
+    const initialLength = this.newsList.length;
     this.newsList = this.newsList.filter((n) => n.id !== id);
-    this.newsSubject.next(this.newsList);
+    const deleted = this.newsList.length < initialLength;
+
+    if (deleted) {
+      this.newsSubject.next(this.newsList);
+    }
+
+    return of(deleted);
   }
 }
