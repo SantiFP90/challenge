@@ -33,7 +33,7 @@
         </div>
       </div>
     </div>
-    <div class="col-8 pt-3">
+    <div class="col-12 md:col-8 lg:col-8 xl:col-8 pt-3">
       <div class="max-w-screen-lg mx-auto">
         <p-card styleClass="shadow-2">
           <div class="mb-4">
@@ -52,7 +52,6 @@
               [src]="news.imageUrl"
               [alt]="news.title"
               width="100%"
-              height="400"
               styleClass="border-round-lg shadow-3"
               [preview]="true"
             ></p-image>
@@ -118,7 +117,7 @@
         </p-card>
       </div>
     </div>
-    <div class="col-4 pt-3">
+    <div class="col-12 md:col-4 lg:col-4 xl:col-4 pt-3">
       <app-news-secondary-card [news]="sideNews" />
     </div>
   </div>
