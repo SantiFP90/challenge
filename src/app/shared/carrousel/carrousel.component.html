@@ -13,7 +13,7 @@
         <img
           [style.view-transition-name]="'transition-image-' + news.id"
           [src]="news.imageUrl"
-          class="w-full h-10rem object-cover border-round mb-2"
+          class="w-full h-auto md:h-10rem lg:h-10rem xl:h-10rem object-cover border-round mb-2"
         />
         <p class="text-red text-xs font-semibold mb-1">
           {{ news.location }}
