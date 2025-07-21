@@ -10,8 +10,9 @@ export class NewsService {
   private newsList: News[] = [
     {
       id: '1',
-      title:
+      subtitle:
         'Gato local se postula para alcalde prometiendo más cajas de arena públicas',
+      title: 'Gato local para alcalde',
       content:
         'El felino Whiskers, de 3 años, presentó su candidatura con un programa electoral que incluye horarios de siesta obligatorios y prohibición de aspiradoras los domingos.',
       createdAt: new Date(),
@@ -22,7 +23,8 @@ export class NewsService {
     },
     {
       id: '2',
-      title: 'Hombre descubre que su planta le ha estado cobrando el WiFi',
+      subtitle: 'Hombre descubre que su planta le ha estado cobrando el WiFi',
+      title: 'Planta manipuladora',
       content:
         'Después de 6 meses pagando una cuenta extra de internet, Juan descubrió que su cactus había creado una red propia llamada "PlantNet_Premium".',
       createdAt: new Date(),
@@ -33,7 +35,8 @@ export class NewsService {
     },
     {
       id: '3',
-      title: 'Abuela bate récord mundial de velocidad en WhatsApp familiar',
+      subtitle: 'Abuela bate récord mundial de velocidad en WhatsApp familiar',
+      title: 'Abuela influencer',
       content:
         'Doña Carmen logró enviar 247 memes de "Buenos días" en menos de 5 minutos, estableciendo un nuevo récord en la categoría "Bombardeo Matutino Familiar".',
       createdAt: new Date(),
@@ -44,7 +47,8 @@ export class NewsService {
     },
     {
       id: '4',
-      title: 'Pizza se declara independiente y forma su propio país',
+      subtitle: 'Pizza se declara independiente y forma su propio país',
+      title: 'Pizza revolucionaria',
       content:
         'Una pizza margherita de 40cm proclamó la República Popular de Pizzalandia desde una caja de cartón, exigiendo reconocimiento internacional y extra queso.',
       createdAt: new Date(),
@@ -55,8 +59,9 @@ export class NewsService {
     },
     {
       id: '5',
-      title:
+      subtitle:
         'Calcetín desaparecido regresa tras 3 años con historias increíbles',
+      title: 'Media secuestrada',
       content:
         'El calcetín azul rayado de Roberto apareció con pasaporte falso y acento extraño, alegando haber trabajado como espía internacional bajo lavadoras enemigas.',
       createdAt: new Date(),
@@ -67,7 +72,8 @@ export class NewsService {
     },
     {
       id: '6',
-      title: 'Semáforo se declara en huelga por exceso de trabajo',
+      subtitle: 'Semáforo se declara en huelga por exceso de trabajo',
+      title: 'Semáforo revolucionario',
       content:
         'El semáforo de la Plaza Mayor anunció que solo funcionará en amarillo intermitente hasta que le concedan vacaciones pagadas y seguro médico.',
       createdAt: new Date(),
@@ -78,7 +84,8 @@ export class NewsService {
     },
     {
       id: '7',
-      title: 'Perro desarrolla aplicación para pedir croquetas a domicilio',
+      subtitle: 'Perro desarrolla aplicación para pedir croquetas a domicilio',
+      title: 'Perro DEV',
       content:
         'Rex, un golden retriever de 5 años, lanzó "WoofEats" tras frustrarse con los tiempos de entrega de sus humanos. Ya tiene 10,000 descargas.',
       createdAt: new Date(),
@@ -89,7 +96,8 @@ export class NewsService {
     },
     {
       id: '8',
-      title: 'Café se niega a ser bebido antes de las 10 AM',
+      subtitle: 'Café se niega a ser bebido antes de las 10 AM',
+      title: 'Café seco',
       content:
         'Una taza de café expreso implementó un sistema de bloqueo temporal, argumentando que "la gente necesita aprender a respetarme como bebida premium".',
       createdAt: new Date(),
@@ -116,6 +124,7 @@ export class NewsService {
     const newItem: News = {
       id: uuid(),
       title: news.title,
+      subtitle: news.subtitle,
       content: news.content,
       createdAt: new Date(),
       imageUrl: news.imageUrl,
