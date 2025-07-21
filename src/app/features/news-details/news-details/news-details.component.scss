@@ -1,0 +1,13 @@
+.btn-back {
+  background: transparent;
+  border: none;
+  color: #f87171;
+}
+
+.btn-back:not(:disabled):hover {
+  background: #f871713b;
+  border: none;
+  font-weight: bold;
+  box-shadow: none;
+  color: red;
+}

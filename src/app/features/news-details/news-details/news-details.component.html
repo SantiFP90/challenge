@@ -1,0 +1,141 @@
+<div class="min-h-screen bg-gray-50">
+  @if (loading) {
+  <div
+    class="flex align-items-center justify-content-center"
+    style="min-height: 50vh"
+  >
+    <p-progressSpinner
+      styleClass="w-4rem h-4rem"
+      strokeWidth="8"
+    ></p-progressSpinner>
+  </div>
+  } @if (!loading && news) {
+  <div class="grid m-0">
+    <div class="col-12 bg-white shadow-1 px-3 py-2">
+      <div
+        class="max-w-screen-lg mx-auto flex justify-content-between align-items-center"
+      >
+        <button
+          pButton
+          icon="pi pi-arrow-left"
+          label="Volver"
+          class="btn-back"
+          (click)="goBack()"
+        ></button>
+
+        <div class="flex align-items-center gap-3 text-red font-bold">
+          <span>
+            {{ news.location }}
+          </span>
+          <span class="text-sm text-600">{{
+            news.createdAt | date : "dd/MM/yyyy HH:mm"
+          }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-8 pt-3">
+      <div class="max-w-screen-lg mx-auto">
+        <p-card styleClass="shadow-2">
+          <div class="mb-4">
+            <h1 class="text-4xl font-bold text-900 line-height-3 mb-3">
+              {{ news.title }}
+            </h1>
+            <p class="text-sm">{{ news.subtitle }}</p>
+            <div class="mb-3">
+              <span class="text-600 font-italic">Por {{ news.author }}</span>
+            </div>
+          </div>
+
+          <div class="mb-4 text-start">
+            <p-image
+              [src]="news.imageUrl"
+              [alt]="news.title"
+              width="100%"
+              height="400"
+              styleClass="border-round-lg shadow-3"
+              [preview]="true"
+            >
+            </p-image>
+          </div>
+
+          <div class="line-height-3 text-700">
+            <p
+              class="text-xl font-medium text-900 mb-3 pl-3 border-left-4 border-primary"
+            >
+              {{ news.content }}
+            </p>
+
+            <p class="mb-3">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged. It was
+              popularised in the 1960s with the release of Letraset sheets
+              containing Lorem Ipsum passages, and more recently with desktop
+              publishing software like Aldus PageMaker including versions of
+              Lorem Ipsum.
+            </p>
+
+            <p class="mb-3">
+              Seguiremos informando sobre este y otros acontecimientos
+              relevantes. Nuestro equipo de reporteros continúa investigando
+              para brindar la información más actualizada a nuestros lectores.
+            </p>
+          </div>
+
+          <p-divider></p-divider>
+
+          <div class="mt-4">
+            <div class="mb-3">
+              <p-chip label="Actualidad" styleClass="mr-2 mb-2"></p-chip>
+              <p-chip [label]="news.location" styleClass="mr-2 mb-2"></p-chip>
+              <p-chip label="Destacado" styleClass="mr-2 mb-2"></p-chip>
+            </div>
+
+            <div>
+              <h4 class="text-900 mb-2">Compartir noticia:</h4>
+              <div class="flex gap-2 flex-wrap">
+                <p-button
+                  label="WhatsApp"
+                  icon="pi pi-whatsapp"
+                  size="small"
+                  styleClass="p-button-success"
+                >
+                </p-button>
+                <p-button
+                  label="Copiar enlace"
+                  icon="pi pi-copy"
+                  size="small"
+                  [outlined]="true"
+                  (onClick)="copyLink()"
+                >
+                </p-button>
+              </div>
+            </div>
+          </div>
+        </p-card>
+      </div>
+    </div>
+    <div class="col-4 pt-3">
+      <div
+        *ngFor="let news of sideNews"
+        class="mb-3 p-3 shadow-1 border-round-md flex align-items-center gap-3 sub-cards cursor-pointer"
+        (click)="viewNewsDetail(news.id)"
+      >
+        <img
+          src="{{ news.imageUrl }}"
+          alt="Miniatura"
+          class="w-6rem h-4rem object-cover border-round"
+        />
+        <div>
+          <p class="location font-bold text-xs mb-1">{{ news.location }}</p>
+          <p class="font-semibold text-sm text-900 mb-0">{{ news.title }}</p>
+          <p class="text-500 text-xs mb-0">{{ news.author }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  }
+</div>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 import { ButtonModule } from 'primeng/button';
 import { CarouselModule } from 'primeng/carousel';
@@ -44,7 +44,7 @@ export class HomeComponent {
     },
   ];
 
-  constructor(private newsService: NewsService) {}
+  constructor(private newsService: NewsService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadNews();
@@ -54,9 +54,18 @@ export class HomeComponent {
     this.newsService.getAll().subscribe((news) => {
       if (news.length > 0) {
         this.mainNews = news[0];
-        this.sideNews = news.slice(1, 5);
+
+        const filtered = news.filter((n) => n.id !== news[0].id);
+
+        const shuffled = filtered.sort(() => 0.5 - Math.random());
+
+        this.sideNews = shuffled.slice(0, 4);
         this.carouselNews = news;
       }
     });
+  }
+
+  viewNewsDetail(newsId: string): void {
+    this.router.navigate(['/details', newsId]);
   }
 }

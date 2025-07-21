@@ -32,6 +32,27 @@
       </div>
 
       <div class="flex flex-column gap-2">
+        <label for="subtitle" class="font-semibold text-900">
+          <i class="pi pi-bookmark mr-2"></i>Subtítulo *
+        </label>
+        <input
+          id="subtitle"
+          pInputText
+          formControlName="subtitle"
+          placeholder="Ingresa el subtítulo de la noticia..."
+          class="w-full"
+        />
+        <small class="text-500">Máximo 100 caracteres</small>
+        @if (form.controls['subtitle'].touched &&
+        form.controls['subtitle'].errors?.['required']) {
+        <small class="text-red"> El título es obligatorio. </small>
+        } @if (form.controls['subtitle'].touched &&
+        form.controls['subtitle'].errors?.['maxlength']) {
+        <small class="text-red"> Máximo 100 caracteres. </small>
+        }
+      </div>
+
+      <div class="flex flex-column gap-2">
         <label for="content" class="font-semibold text-900">
           <i class="pi pi-file-edit mr-2"></i>Contenido *
         </label>
@@ -70,6 +91,26 @@
         <small class="text-red">
           Debe ser una URL válida de imagen (jpg, png, etc).
         </small>
+        }
+      </div>
+
+      <div class="flex flex-column gap-2">
+        <label for="location" class="font-semibold text-900">
+          <i class="pi pi-user mr-2"></i>Localidad *
+        </label>
+        <input
+          id="location"
+          pInputText
+          formControlName="location"
+          placeholder="Nombre la localidad..."
+          class="w-full"
+        />
+        @if (form.controls['location'].touched &&
+        form.controls['location'].errors?.['required']) {
+        <small class="text-red"> La localidad es obligatoria. </small>
+        } @if (form.controls['location'].touched &&
+        form.controls['location'].errors?.['maxlength']) {
+        <small class="text-red"> Máximo 50 caracteres. </small>
         }
       </div>
 

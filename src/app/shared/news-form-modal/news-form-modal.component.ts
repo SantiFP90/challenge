@@ -36,16 +36,11 @@ export class NewsFormModalComponent {
   constructor(private fb: FormBuilder, private newsService: NewsService) {
     this.form = this.fb.group({
       title: ['', [Validators.required, Validators.maxLength(100)]],
+      subtitle: ['', [Validators.required, Validators.maxLength(100)]],
       content: ['', [Validators.required, Validators.minLength(50)]],
-      imageUrl: [
-        '',
-        [
-          Validators.pattern(
-            /^(https?:\/\/.*\.(?:png|jpg|jpeg|webp|svg|gif))/i
-          ),
-        ],
-      ],
+      imageUrl: ['', [Validators.pattern(/^https:\/\/.+/i)]],
       author: ['', [Validators.required, Validators.maxLength(50)]],
+      location: ['', [Validators.required, Validators.maxLength(50)]],
     });
   }
 
