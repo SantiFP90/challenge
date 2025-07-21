@@ -1,0 +1,18 @@
+@for (news of news; track news.id) {
+<div
+  class="mb-3 p-3 shadow-1 border-round-md flex align-items-center gap-3 sub-cards cursor-pointer"
+  (click)="viewNewsDetail(news.id)"
+>
+  <img
+    [style.view-transition-name]="'transition-image-' + news.id"
+    [src]="news.imageUrl"
+    alt="Miniatura"
+    class="w-6rem h-4rem object-cover border-round"
+  />
+  <div>
+    <p class="text-red font-bold text-xs mb-1">{{ news.location }}</p>
+    <p class="font-semibold text-sm text-900 mb-0">{{ news.title }}</p>
+    <p class="text-500 text-xs mb-0">{{ news.author }}</p>
+  </div>
+</div>
+}
