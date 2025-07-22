@@ -66,13 +66,6 @@ export class HeaderComponent {
         });
         this.router.navigate(['/news']);
       },
-      error: () => {
-        this.messageService.add({
-          severity: 'error',
-          summary: 'Error',
-          detail: 'No se pudo eliminar la noticia',
-        });
-      },
     });
   }
 }
