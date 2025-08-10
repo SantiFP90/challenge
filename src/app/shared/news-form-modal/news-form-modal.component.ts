@@ -66,7 +66,6 @@ export class NewsFormModalComponent {
       } else {
         this.newsService.create(this.form.value);
       }
-
       this.newsCreated.emit();
       this.form.reset();
       this.visible = false;

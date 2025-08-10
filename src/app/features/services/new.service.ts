@@ -117,9 +117,9 @@ export class NewsService {
   }
 
   getById(id: string): Observable<News | undefined> {
-    return this.newsSubject.pipe(
-      map((newsList) => newsList.find((n) => n.id === id))
-    );
+    return this.newsSubject
+      .asObservable()
+      .pipe(map((newsList) => newsList.find((n) => n.id === id)));
   }
 
   create(news: Omit<News, 'id' | 'createdAt'>): void {
